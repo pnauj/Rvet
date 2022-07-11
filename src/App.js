@@ -9,6 +9,9 @@ import CardProduct from './components/pages/home/cards/Cards';
 import PacientesCreate from './components/pages/pacientesCreate/PacientesCreate';
 import PacientesEdit from './components/pages/pacientesEdit/PacientesEdit';
 import PacientesTabla from './components/pages/PacientesTabla/PacientesTabla';
+import TurnosCreate from './components/pages/turnosCreate/TurnosCreate';
+import TurnosEdit from './components/pages/turnosEdit/TurnosEdit';
+import TurnoTabla from './components/pages/turnoTabla/TurnoTabla';
 
 
 
@@ -21,8 +24,10 @@ function App() {
      <Error404 /> */}
      {/* <PacientesCreate /> */}
      {/* <PacientesEdit /> */}
-     {/* <PacientesTabla /> */}
-     
+     <PacientesTabla />
+     {/* <TurnosCreate /> */}
+     {/* <TurnosEdit /> */}
+     {/* <TurnoTabla /> */}
     </div>
 
   );

@@ -1,32 +1,36 @@
-import React from 'react';
+import React from "react";
+import { Button, Container, Table } from "react-bootstrap";
+import Pacientes from "./pacientes/Pacientes";
 
 const PacientesTabla = () => {
-    return (
-        <div>
-             <Container className="py-5">
+  return (
+    <div>
+      <Container className="py-5">
         <div className="d-flex align-items-center justify-content-between">
-          <h1>Products Table</h1>
-          <button className="btn-yellow">Add Product</button>
+          <h1>Pacientes Tabla</h1>
+          <Button className="btn-yellow">Agregar Pacientes</Button>
         </div>
         <hr />
-        {/* Table of products */}
         <Table bordered hover responsive className="align-middle mt-3">
           <thead>
             <tr>
-              <th>N.</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Image url</th>
-              <th>Category</th>
-              <th>Actions</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Numero</th>
+              <th>NombreMascota</th>
+              <th>Especie</th>
+              <th>Raza</th>
             </tr>
           </thead>
           <tbody>
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            <Pacientes />
+            <Pacientes />
+            <Pacientes />
+            <Pacientes />
+            <Pacientes />
+            <Pacientes />
+            <Pacientes />
           </tbody>
         </Table>
         {/* No products found message */}
@@ -34,8 +38,8 @@ const PacientesTabla = () => {
           <h1>🥐 No products found ☕</h1>
         </div> */}
       </Container>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default PacientesTabla;

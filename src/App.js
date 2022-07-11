@@ -8,6 +8,7 @@ import Error404 from './components/pages/error404/Error404';
 import CardProduct from './components/pages/home/cards/Cards';
 import PacientesCreate from './components/pages/pacientesCreate/PacientesCreate';
 import PacientesEdit from './components/pages/pacientesEdit/PacientesEdit';
+import PacientesTabla from './components/pages/PacientesTabla/PacientesTabla';
 
 
 
@@ -19,7 +20,8 @@ function App() {
      <Footer />
      <Error404 /> */}
      {/* <PacientesCreate /> */}
-     <PacientesEdit />
+     {/* <PacientesEdit /> */}
+     {/* <PacientesTabla /> */}
      
     </div>
 

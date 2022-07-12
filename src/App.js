@@ -12,28 +12,35 @@ import PacientesTabla from "./components/pages/PacientesTabla/PacientesTabla";
 import TurnosCreate from "./components/pages/turnosCreate/TurnosCreate";
 import TurnosEdit from "./components/pages/turnosEdit/TurnosEdit";
 import TurnoTabla from "./components/pages/turnoTabla/TurnoTabla";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Navigation />
-      <main>
-        <Home />
-
-        {/* <PacientesCreate /> 
-     <PacientesEdit /> 
-     <PacientesTabla />
-     <TurnosCreate /> 
-     <TurnosEdit /> 
-     <TurnoTabla /> 
-     <Error404 />  */}
-      </main>
-      <Footer />
+      <BrowserRouter>
+        <Navigation />
+        <main>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/pacientes/tabla" element={<PacientesTabla />} />
+            <Route
+              exact
+              path="/pacientes/create"
+              element={<PacientesCreate />}
+            />
+            <Route exact path="/pacientes/edit" element={<PacientesEdit />} />
+             <Route exact path="/turnos/tabla" element={<TurnoTabla />} />
+            <Route exact path="/turnos/create" element={<TurnosCreate />} />
+            <Route exact path="/turnos/edit" element={<TurnosEdit />} />
+            <Route exact path="*" element={<Error404 />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
-
 
 //video 00:00:19

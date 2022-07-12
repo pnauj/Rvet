@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Turnos = () => {
   return (
@@ -11,8 +12,8 @@ const Turnos = () => {
       <td>18:00</td>
       <td className="w-25">
         <div className="d-flex justify-content-center">
-          <Button className="btn-orange mx-1">Editar</Button>
-          <Button className="btn-red mx-1">Eliminar</Button>
+          <Link to="/turnos/edit" className="btn btn-warning mx-1">Editar</Link>
+          <Button className="btn btn-danger mx-1">Eliminar</Button>
         </div>
       </td>
     </tr>

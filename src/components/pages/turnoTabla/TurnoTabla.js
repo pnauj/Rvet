@@ -1,5 +1,6 @@
 import React from "react";
 import {Table, Container, Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Turnos from "./turnos/Turnos";
 
 const TurnoTabla = () => {
@@ -8,7 +9,7 @@ const TurnoTabla = () => {
       <Container className="py-5">
         <div className="d-flex align-items-center justify-content-between">
           <h1>Turnos Tabla</h1>
-          <Button className="btn-yellow">Agregar Turnos</Button>
+          <Link to="/turnos/create" className="btn btn-success">Agregar Turnos</Link>
         </div>
         <hr />
         <Table bordered hover responsive className="align-middle mt-3">

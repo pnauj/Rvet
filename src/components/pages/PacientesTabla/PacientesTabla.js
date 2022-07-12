@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Container, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Pacientes from "./pacientes/Pacientes";
 
 const PacientesTabla = () => {
@@ -8,7 +9,7 @@ const PacientesTabla = () => {
       <Container className="py-5">
         <div className="d-flex align-items-center justify-content-between">
           <h1>Pacientes Tabla</h1>
-          <Button className="btn-yellow">Agregar Pacientes</Button>
+          <Link to="/pacientes/create" className="btn btn-success">Agregar Pacientes</Link>
         </div>
         <hr />
         <Table bordered hover responsive className="align-middle mt-3">

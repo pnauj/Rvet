@@ -2,14 +2,14 @@ import { Button } from "react-bootstrap";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Turnos = () => {
+const Turnos = ({turno}) => {
   return (
     <tr>
-      <td>Chequeo Anual</td>
-      <td>Dr Lopez</td>
-      <td>Rolo</td>
-      <td>17/07/2022</td>
-      <td>18:00</td>
+      <td>{turno.detalle}</td>
+      <td>{turno.vet}</td>
+      <td>{turno.nombreM}</td>
+      <td>{turno.fecha}</td>
+      <td>{turno.hora}</td>
       <td className="w-25">
         <div className="d-flex justify-content-center">
           <Link to="/turnos/edit" className="btn btn-warning mx-1">Editar</Link>

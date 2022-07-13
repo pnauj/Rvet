@@ -3,9 +3,16 @@
     {
       "detalle": "revision medica",
       "vet": "Dr Lopez",
-      "nombreM": "typicode",
+      "nombreM": "pepito",
       "fecha": "20/07/2022",
       "hora": "12:00"
+    },
+    {
+      "detalle": "Lavado estomacal",
+      "vet": "Dr Lopez",
+      "nombreM": "fuffy",
+      "fecha": "23/07/2022",
+      "hora": "18:00"
     }
   ]
 }

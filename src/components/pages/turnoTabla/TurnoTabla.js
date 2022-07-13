@@ -1,15 +1,17 @@
 import React from "react";
-import {Table, Container, Button} from "react-bootstrap";
+import { Table, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Turnos from "./turnos/Turnos";
 
-const TurnoTabla = () => {
+const TurnoTabla = ({ turnos }) => {
   return (
     <div>
       <Container className="py-5">
         <div className="d-flex align-items-center justify-content-between">
           <h1>Turnos Tabla</h1>
-          <Link to="/turnos/create" className="btn btn-success">Agregar Turnos</Link>
+          <Link to="/turnos/create" className="btn btn-success">
+            Agregar Turnos
+          </Link>
         </div>
         <hr />
         <Table bordered hover responsive className="align-middle mt-3">
@@ -23,11 +25,9 @@ const TurnoTabla = () => {
             </tr>
           </thead>
           <tbody>
-            <Turnos />
-            <Turnos />
-            <Turnos />
-            <Turnos />
-            <Turnos />
+            {turnos.map((turno) => (
+              <Turnos turno={turno}/>
+            ))}
           </tbody>
         </Table>
         {/* No products found message */}

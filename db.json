@@ -1,0 +1,11 @@
+{
+  "turnos": [
+    {
+      "detalle": "revision medica",
+      "vet": "Dr Lopez",
+      "nombreM": "typicode",
+      "fecha": "20/07/2022",
+      "hora": "12:00"
+    }
+  ]
+}

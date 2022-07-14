@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 
 const TurnosCreate = () => {
+
+  const [detalle, setDetalle] = useState("");
+  const [vet, setVet] = useState("");
+  const [nombreM, setNombreM] = useState("");
+  const [fecha, setFecha] = useState("");
+  const [hora, setHora] = useState("");
+
   return (
     <div>
       <Container className="py-5">
@@ -15,6 +22,7 @@ const TurnosCreate = () => {
               as="textarea"
               rows={3}
               placeholder="Escriba el detalle"
+              onChange={({target})=> setDetalle(target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -30,11 +38,14 @@ const TurnosCreate = () => {
             <Form.Control
               type="text"
               placeholder="Escriba el nombre de la mascota"
+              onChange={({target})=> setNombreM(target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Fecha</Form.Label>
-            <Form.Control type="date" placeholder="Ej: 01/01/22" />
+            <Form.Control type="date"
+             placeholder="Ej: 01/01/22"
+             onChange={({target})=> setFecha(target.value)} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Label>Horario</Form.Label>

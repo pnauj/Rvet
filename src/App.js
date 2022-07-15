@@ -60,6 +60,6 @@ function App() {
 
 export default App;
 
-//video 01:38:00
+//video 01:54:00
 //Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 // 01:10:00 create

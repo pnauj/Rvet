@@ -9,12 +9,19 @@ const TurnosCreate = () => {
   const [fecha, setFecha] = useState("");
   const [hora, setHora] = useState("");
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if(){
+    
+  }
+};
+
   return (
     <div>
       <Container className="py-5">
         <h1>Agregar Turnos</h1>
         <hr />
-        <Form className="my-5">
+        <Form className="my-5" onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Detalle de la cita</Form.Label>
             <Form.Control
@@ -27,7 +34,7 @@ const TurnosCreate = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Label>Veterinario</Form.Label>
-            <Form.Select>
+            <Form.Select  onChange={({target})=> setVet(target.value)}>
               <option value="">Elige una opcion</option>
               <option value="Dr Lopez">Dr Lopez</option>
               <option value="Dra Rosario">Dra Rosario</option>
@@ -38,7 +45,7 @@ const TurnosCreate = () => {
             <Form.Control
               type="text"
               placeholder="Escriba el nombre de la mascota"
-              onChange={({target})=> setNombreM(target.value)}
+              onChange={({target})=> setNombreM(target.value)} 
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -49,7 +56,7 @@ const TurnosCreate = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Label>Horario</Form.Label>
-            <Form.Select>
+            <Form.Select  onChange={({target})=> setHora(target.value)}>
               <option value="">Elige una opcion</option>
               <option value="09:00">09:00</option>
               <option value="10:00">10:00</option>

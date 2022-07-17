@@ -47,7 +47,7 @@ function App() {
             />
             <Route exact path="/pacientes/edit" element={<PacientesEdit />} />
             <Route exact path="/turnos/tabla" element={<TurnoTabla turnos={turnos} />} />
-            <Route exact path="/turnos/create" element={<TurnosCreate />} />
+            <Route exact path="/turnos/create" element={<TurnosCreate URL={URL}/>} />
             <Route exact path="/turnos/edit" element={<TurnosEdit />} />
             <Route exact path="*" element={<Error404 />} />
           </Routes>

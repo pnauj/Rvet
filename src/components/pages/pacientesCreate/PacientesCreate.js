@@ -10,46 +10,60 @@ const PacientesCreate = () => {
         <hr />
         <Formik
           initialValues={{
-            Nombre: '',
-            Apellido: '',
-            Email: '',
-            Telefono: '',
-            NombreMascota: '',
-            Especie: '',
-            Raza: ''
+            Nombre: "",
+            Apellido: "",
+            Email: "",
+            Telefono: "",
+            NombreMascota: "",
+            Especie: "",
+            Raza: "",
           }}
+          validate={(valores) => {
+            let errores = {};
 
+            if (!valores.Nombre) {
+              errores.Nombre = "Por favor ingrese su nombre";
+            }
+
+            return errores;
+          }}
           onSubmit={(valores) => {
             console.log(valores);
             console.log("formulario enviado");
           }}
         >
-          {({values,handleChange, handleSubmit, handleBlur}) => (
+          {({ values,errors, handleChange, handleSubmit, handleBlur }) => (
             <Form className="my-5" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control 
-                type="text" 
-                placeholder="Escriba su nombre"
-                value={values.Nombre}
-                onChange={handleChange}
-                onBlur={handleBlur} 
+                <Form.Control
+                  type="text"
+                  name="Nombre"
+                  id="Nombre"
+                  placeholder="Escriba su nombre"
+                  value={values.Nombre}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Apellido</Form.Label>
-                <Form.Control 
-                type="text" 
-                placeholder="Escriba su Apellido"
-                value={values.Apellido}
-                onChange={handleChange}
-                onBlur={handleBlur} 
+                <Form.Control
+                  type="text"
+                  name="Apellido"
+                  id="Apellido"
+                  placeholder="Escriba su Apellido"
+                  value={values.Apellido}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
+                  name="Email"
+                  id="Email"
                   placeholder="Ej: ejemplo@correo.com"
                   value={values.Email}
                   onChange={handleChange}
@@ -58,20 +72,24 @@ const PacientesCreate = () => {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Telefono</Form.Label>
-                <Form.Control 
-                type="number" 
-                placeholder="Escriba su telefono"
-                value={values.Telefono} 
-                onChange={handleChange}
-                onBlur={handleBlur}
+                <Form.Control
+                  type="number"
+                  name="Telefono"
+                  id="Telefono"
+                  placeholder="Escriba su telefono"
+                  value={values.Telefono}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
               </Form.Group>
               <hr />
               <h3>Datos de la Mascotas</h3>
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Nombre</Form.Label>
+                <Form.Label>Nombre Mascota</Form.Label>
                 <Form.Control
                   type="text"
+                  name="NombreMascota"
+                  id="NombreMascota"
                   placeholder="Escriba el nombre de mascota"
                   value={values.NombreMascota}
                   onChange={handleChange}
@@ -81,9 +99,9 @@ const PacientesCreate = () => {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Label>Especie</Form.Label>
                 <Form.Select
-                value={values.Especie}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                  value={values.Especie}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 >
                   <option value="">Elija una opcion</option>
                   <option value="Perro">Perro</option>
@@ -96,6 +114,8 @@ const PacientesCreate = () => {
                 <Form.Label>Raza</Form.Label>
                 <Form.Control
                   type="text"
+                  name="Raza"
+                  id="Raza"
                   placeholder="Escriba la raza de su mascota"
                   value={values.Raza}
                   onChange={handleChange}
@@ -103,7 +123,9 @@ const PacientesCreate = () => {
                 />
               </Form.Group>
               <div className="text-end">
-                <Button type="submit" className="btn-yellow">Guardar</Button>
+                <Button type="submit" className="btn-yellow">
+                  Guardar
+                </Button>
               </div>
             </Form>
           )}

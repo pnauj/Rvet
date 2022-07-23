@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Button, Container, Form } from "react-bootstrap";
+import { validateNombre } from "../../validation/Validations";
 
 const PacientesCreate = () => {
   return (
@@ -23,6 +24,8 @@ const PacientesCreate = () => {
 
             if (!valores.Nombre) {
               errores.Nombre = "Por favor ingrese su nombre";
+            } else if(!validateNombre.test(valores.Nombre)) {
+              errores.Nombre = 'El nombre solo puede contener letras'
             }
 
             return errores;
@@ -45,6 +48,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                 {errors.Nombre && <div className="text-danger">{errors.Nombre}</div>}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Apellido</Form.Label>
@@ -137,4 +141,4 @@ const PacientesCreate = () => {
 
 export default PacientesCreate;
 
-//video formik 00:28:00
+//video formik 00:32:00

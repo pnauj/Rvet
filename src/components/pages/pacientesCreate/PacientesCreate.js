@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Button, Container, Form } from "react-bootstrap";
-import { validateNombre } from "../../validation/Validations";
+import { validateEmail, validateNombre, validateTel } from "../../validation/Validations";
 
 const PacientesCreate = () => {
   return (
@@ -24,10 +24,28 @@ const PacientesCreate = () => {
 
             if (!valores.Nombre) {
               errores.Nombre = "Por favor ingrese su nombre";
-            } else if(!validateNombre.test(valores.Nombre)) {
-              errores.Nombre = 'El nombre solo puede contener letras'
+            } else if (!validateNombre.test(valores.Nombre)) {
+              errores.Nombre = "El nombre solo puede contener letras"
             }
 
+            if (!valores.Apellido) {
+              errores.Apellido = "Por favor ingrese su nombre";
+            } else if (!validateNombre.test(valores.Apellido)) {
+              errores.Apellido = "El Apellido solo puede contener letras"
+            }
+
+            if (!valores.Email) {
+              errores.Email = "Por favor ingrese su Email";
+            } else if (!validateEmail.test(valores.Email)) {
+              errores.Apellido = "Debe llenar correctamente el campo"
+            }
+
+            if (!valores.Telefono) {
+              errores.Telefono = "Por favor ingrese su Telefono";
+            } else if (!validateTel.test(valores.Telefono)) {
+              errores.Telefono = "Debe llenar correctamente el campo"
+            }
+            
             return errores;
           }}
           onSubmit={(valores) => {
@@ -35,7 +53,7 @@ const PacientesCreate = () => {
             console.log("formulario enviado");
           }}
         >
-          {({ values,errors, handleChange, handleSubmit, handleBlur }) => (
+          {({ values, errors, handleChange, handleSubmit, handleBlur }) => (
             <Form className="my-5" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre</Form.Label>
@@ -48,7 +66,9 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                 {errors.Nombre && <div className="text-danger">{errors.Nombre}</div>}
+                {errors.Nombre && (
+                  <div className="text-danger">{errors.Nombre}</div>
+                )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Apellido</Form.Label>
@@ -61,6 +81,9 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                {errors.Apellido && (
+                  <div className="text-danger">{errors.Apellido}</div>
+                )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Email</Form.Label>
@@ -73,6 +96,9 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                {errors.Email && (
+                  <div className="text-danger">{errors.Email}</div>
+                )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Telefono</Form.Label>
@@ -85,6 +111,9 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                {errors.Telefono && (
+                  <div className="text-danger">{errors.Telefono}</div>
+                )}
               </Form.Group>
               <hr />
               <h3>Datos de la Mascotas</h3>
@@ -99,6 +128,9 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                {errors.NombreMascota && (
+                  <div className="text-danger">{errors.NombreMascota}</div>
+                )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Label>Especie</Form.Label>
@@ -106,6 +138,8 @@ const PacientesCreate = () => {
                   value={values.Especie}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  id="Especie"
+                  name="Especie"
                 >
                   <option value="">Elija una opcion</option>
                   <option value="Perro">Perro</option>
@@ -113,6 +147,9 @@ const PacientesCreate = () => {
                   <option value="Aves">Aves</option>
                   <option value="Otro">Otro</option>
                 </Form.Select>
+                {errors.Especie && (
+                  <div className="text-danger">{errors.Especie}</div>
+                )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Raza</Form.Label>
@@ -125,6 +162,9 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
+                {errors.Raza && (
+                  <div className="text-danger">{errors.Raza}</div>
+                )}
               </Form.Group>
               <div className="text-end">
                 <Button type="submit" className="btn-yellow">

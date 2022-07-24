@@ -1,7 +1,12 @@
 import React from "react";
 import { Formik } from "formik";
 import { Button, Container, Form } from "react-bootstrap";
-import { validateEmail, validateNombre, validateTel } from "../../validation/Validations";
+import {
+  validateEmail,
+  validateEspecie,
+  validateNombre,
+  validateTel,
+} from "../../validation/Validations";
 
 const PacientesCreate = () => {
   return (
@@ -25,27 +30,46 @@ const PacientesCreate = () => {
             if (!valores.Nombre) {
               errores.Nombre = "Por favor ingrese su nombre";
             } else if (!validateNombre.test(valores.Nombre)) {
-              errores.Nombre = "El nombre solo puede contener letras"
+              errores.Nombre = "El nombre solo puede contener letras";
             }
 
             if (!valores.Apellido) {
-              errores.Apellido = "Por favor ingrese su nombre";
+              errores.Apellido = "Por favor ingrese su Apellido";
             } else if (!validateNombre.test(valores.Apellido)) {
-              errores.Apellido = "El Apellido solo puede contener letras"
+              errores.Apellido = "El Apellido solo puede contener letras";
             }
 
             if (!valores.Email) {
               errores.Email = "Por favor ingrese su Email";
             } else if (!validateEmail.test(valores.Email)) {
-              errores.Apellido = "Debe llenar correctamente el campo"
+              errores.Email = "Debe llenar correctamente el campo";
             }
 
             if (!valores.Telefono) {
               errores.Telefono = "Por favor ingrese su Telefono";
             } else if (!validateTel.test(valores.Telefono)) {
-              errores.Telefono = "Debe llenar correctamente el campo"
+              errores.Telefono = "Debe llenar correctamente el campo";
             }
-            
+
+            if (!valores.NombreMascota) {
+              errores.NombreMascota =
+                "Por favor ingrese el nombre de su mascota";
+            } else if (!validateNombre.test(valores.NombreMascota)) {
+              errores.NombreMascota = "Debe llenar correctamente el campo";
+            }
+
+            if (!valores.Especie) {
+              errores.Especie = "Por favor indique una Opcion";
+            } else if (!validateEspecie.test(valores.Especie)) {
+              errores.Especie = "Debe llenar correctamente el campo";
+            }
+
+            if (!valores.Raza) {
+              errores.Raza = "Por favor ingrese la raza de su mascota";
+            } else if (!validateNombre.test(valores.Raza)) {
+              errores.Raza = "Debe llenar correctamente el campo";
+            }
+
             return errores;
           }}
           onSubmit={(valores) => {
@@ -53,7 +77,14 @@ const PacientesCreate = () => {
             console.log("formulario enviado");
           }}
         >
-          {({ values, errors, handleChange, handleSubmit, handleBlur }) => (
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleSubmit,
+            handleBlur,
+          }) => (
             <Form className="my-5" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre</Form.Label>
@@ -66,7 +97,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.Nombre && (
+                {touched.Nombre && errors.Nombre && (
                   <div className="text-danger">{errors.Nombre}</div>
                 )}
               </Form.Group>
@@ -81,7 +112,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.Apellido && (
+                {touched.Apellido && errors.Apellido && (
                   <div className="text-danger">{errors.Apellido}</div>
                 )}
               </Form.Group>
@@ -96,7 +127,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.Email && (
+                {touched.Email && errors.Email && (
                   <div className="text-danger">{errors.Email}</div>
                 )}
               </Form.Group>
@@ -111,7 +142,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.Telefono && (
+                {touched.Telefono && errors.Telefono && (
                   <div className="text-danger">{errors.Telefono}</div>
                 )}
               </Form.Group>
@@ -128,7 +159,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.NombreMascota && (
+                {touched.NombreMascota && errors.NombreMascota && (
                   <div className="text-danger">{errors.NombreMascota}</div>
                 )}
               </Form.Group>
@@ -147,7 +178,7 @@ const PacientesCreate = () => {
                   <option value="Aves">Aves</option>
                   <option value="Otro">Otro</option>
                 </Form.Select>
-                {errors.Especie && (
+                {touched.Especie && errors.Especie && (
                   <div className="text-danger">{errors.Especie}</div>
                 )}
               </Form.Group>
@@ -162,7 +193,7 @@ const PacientesCreate = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.Raza && (
+                {touched.Raza && errors.Raza && (
                   <div className="text-danger">{errors.Raza}</div>
                 )}
               </Form.Group>

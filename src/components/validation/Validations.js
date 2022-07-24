@@ -47,6 +47,21 @@ export const validateVet = (campo) => {
   }
 };
 
+export const validateEspecie = (campo) => {
+  if (
+    erNombre.test(campo) &&
+    campo.trim() !== "" &&
+    (campo === "Perro" ||
+      campo === "Gato" ||
+      campo === "Aves" ||
+      campo === "Otro")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export const validateHora = (campo) => {
   if (
     erHora.test(campo) &&
